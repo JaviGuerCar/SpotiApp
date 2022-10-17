@@ -13,7 +13,9 @@ export class CardsComponent {
   constructor(private router: Router) { }
 
   seeArtist(item:any) {
-    this.router.navigate(['/artist', item.id])
+    let artistId;
+    artistId = item.type === 'artist' ? item.id : item.artists[0].id;
+    this.router.navigate(['/artist', artistId]);
   }
 
 }
